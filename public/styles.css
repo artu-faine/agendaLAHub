@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.voltar {
+    margin: 5px;
+}
+
+#create-form,
+#edit-form {
+    width: 500px;
+    margin: 0;
+}
+
+#main-title {
+    text-align: center;
+    margin: 15px 0 30px;
+    /* background-color: orange; */
+}
+
+/* #p-text {
+    text-align: center;
+    height: 0px;
+} */
+
+.btn-primary {
+    background-color: orange;
+    border: none;
+    margin: 0 2px;
+}
+
+.btn-primary:hover {
+    background-color: black;
+}
+
+.alert {
+    text-align: center;
+    margin: 0%;
+}
+
+
+.div-pai{
+    overflow: auto;
+}
+
+
+.div-filha {
+    float: left;
+}
+
+
+.div-filha-2 {
+    float: right;
+}
+
+.logo {
+    display: flex;
+}
+
+i {
+    margin-right: 7px;
+}
+
+p {
+    margin: 0%;
+}
+
+.create {
+    /* flex-grow: 1; */
+    position: relative;
+    bottom: 75px;
+}
