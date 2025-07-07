@@ -49,12 +49,14 @@
                             @endforeach
                         </th>
                         <th scope="row">{{date("d/m/Y")}}</th>
+                        @can('edit', $contato)
                         <th scope="row"><a href="/edit/{{$contato->id}}"><button class="btn btn-primary">Editar</button></a></th>
                         <form action="/delete/{{$contato->id}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <th scope="row"><button class="btn btn-primary">Deletar</button></th>
                         </form>
+                        @endcan
                     </tr>
                     @endforeach
             </tbody>
