@@ -1,6 +1,8 @@
 @php
     $user = auth()->user();
     $perfil = $user->name;
+
+    // echo $usuario;
 @endphp 
 @extends('layout')
 @section('title', "Contatos de $perfil")
@@ -8,7 +10,7 @@
 @include('bckbutton')
     <div class="h-100 d-flex flex-column justify-content-center align-items-center">
     <div class="w-50">
-    <h1 id="main-title">Contatos de {{$perfil}}</h1>
+    <h1 id="main-title">Contatos de {{auth()->user()->name}}</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -20,7 +22,7 @@
             </thead>
             <tbody>
                 @foreach($contatos as $contato)
-                    @if($contato->user_id == $user->id)
+                    {{-- @if($contato->user_id == $user->id) --}}
                         <tr>
                             <th scope="row">{{$contato->id}}</th>
                             <th scope="row">{{$contato->nome}}</th>
@@ -33,7 +35,7 @@
                                     <th scope="row"><button class="btn btn-primary">Deletar</button></th>
                                 </form>
                         </tr>
-                    @endif
+                    {{-- @endif --}}
                 @endforeach
             </tbody>
         </table>

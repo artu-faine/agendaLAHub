@@ -140,8 +140,19 @@ class ContatosController extends Controller
 
     public function Ind() {
 
-        $contatos = Contato::all();
+        // $contatos = Contato::all();
 
-        return view('contatosInd', ['contatos' => $contatos]);
+
+        // $contatos = Contato::all();
+
+        // $contato = Contato::find(1);
+
+        // $usuario = $contato->user;
+
+        $usuario = auth()->user();
+
+        $contatos = $usuario->contatos;
+
+        return view('contatosInd', ['contatos' => $contatos, 'usuario' => $usuario]);
     }
 }
