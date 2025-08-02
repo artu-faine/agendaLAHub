@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContatosController;
+use App\Http\Middleware\OnlyAdmin;
 
-Route::get('/', [ContatosController::class, 'index']);
+Route::get('/', [ContatosController::class, 'index'])->name('h');
 Route::get('welcome', [ContatosController::class, 'index']);
-Route::get('/create', [ContatosController::class, 'create'])->middleware('auth');
+Route::get('/create', [ContatosController::class, 'create'])->middleware('auth')->name('create');
 Route::post('/create', [ContatosController::class, 'store']);
 Route::get('/edit/{id}', [ContatosController::class, 'edit']);
 Route::put('/edit/{id}', [ContatosController::class, 'update'])->middleware('can:verAcoes');
@@ -24,3 +25,8 @@ Route::middleware([
         return redirect('/');
     })->name('dashboard');
 });
+
+
+Route::get('/teste', function(){
+    echo "Apenas administradores!";
+})->middleware([OnlyAdmin::class]);

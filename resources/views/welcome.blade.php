@@ -8,7 +8,7 @@
     <p class="alert alert-success">{{session('msg')}}</p>
     @endif --}}
     <div class="container position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center">
-    <h1 id="main-title">Agenda La</h1>
+    <h1 id="main-title">Agenda La Stripe</h1>
     <form action="/" method="GET" class="w-50">
     <div class="d-flex">
     <input type="text" class="form-control" name="search" placeholder="Pesquise:">
@@ -63,7 +63,7 @@
         </table>
     @endif
     <div class="w-100">
-    <a href="/create"><button class="btn btn-primary">Criar contato</button></a>
+    <a href="/create"><button class="btn btn-primary">Comprar contato</button></a>
     </div>
     </div>
 @endsection

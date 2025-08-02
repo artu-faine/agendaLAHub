@@ -45,16 +45,20 @@ class ContatosController extends Controller
             'phone.min' => 'O campo "telefone" deve ter no mínimo 9 caracteres',
         ]
     );
+        $user = auth()->user();
 
         $contatos->nome = $request->nome;
         $contatos->phone = $request->phone;
-
-        $user = auth()->user();
         $contatos->user_id = $user->id;
 
         $contatos->save();
 
-        return redirect('/')->with('msg', 'Contato criado!')->with('status', 'success');
+        // return redirect('/')->with('msg', 'Contato criado!')->with('status', 'success');
+
+        return $user->checkout(["price_1RpF0dQjRZKxfVC4pTz16ozH" => 1],[
+            'success_url' => route('h'),
+            'cancel_url' => route('create')
+        ]);
     }
 
     public function edit($id) {
@@ -155,4 +159,6 @@ class ContatosController extends Controller
 
         return view('contatosInd', ['contatos' => $contatos, 'usuario' => $usuario]);
     }
+
+    // public function contatoPago
 }
